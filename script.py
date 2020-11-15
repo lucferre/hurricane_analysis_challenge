@@ -101,12 +101,32 @@ def find_most_deadly(hurricanes):
 find_most_deadly(hurricanes_dictionary)
 
 # write your catgeorize by mortality function here:
+def rate_by_mortality(hurricanes_dictionary):
+    mortality_scale = {0: 0,
+                       1: 100,
+                       2: 500,
+                       3: 1000,
+                       4: 10000}
 
+    by_mortality_rating = {0: [], 1: [], 2: [], 3: [], 4: [], 5: []}
 
-
-
-
-
+    for hurricane in hurricanes_dictionary:
+        if (hurricanes_dictionary[hurricane]["Deaths"] == 0):
+            by_mortality_rating[0].append(hurricanes_dictionary[hurricane])
+        elif (hurricanes_dictionary[hurricane]["Deaths"] > mortality_scale[0]) and (hurricanes_dictionary[hurricane]["Deaths"] <= mortality_scale[1]):
+            by_mortality_rating[1].append(hurricanes_dictionary[hurricane])
+        elif (hurricanes_dictionary[hurricane]["Deaths"] > mortality_scale[1]) and (hurricanes_dictionary[hurricane]["Deaths"] <= mortality_scale[2]):
+            by_mortality_rating[2].append(hurricanes_dictionary[hurricane])
+        elif (hurricanes_dictionary[hurricane]["Deaths"] > mortality_scale[2]) and (hurricanes_dictionary[hurricane]["Deaths"] <= mortality_scale[3]):
+            by_mortality_rating[3].append(hurricanes_dictionary[hurricane])
+        elif (hurricanes_dictionary[hurricane]["Deaths"] > mortality_scale[3]) and (hurricanes_dictionary[hurricane]["Deaths"] <= mortality_scale[4]):
+            by_mortality_rating[4].append(hurricanes_dictionary[hurricane])
+        elif (hurricanes_dictionary[hurricane]["Deaths"] >= mortality_scale[4]):
+            by_mortality_rating[5].append(hurricanes_dictionary[hurricane])
+        
+    return by_mortality_rating
+    
+rate_by_mortality(hurricanes_dictionary)
 
 # write your greatest damage function here:
 
