@@ -40,12 +40,13 @@ def update_damages(list):
 damages_in_float = update_damages(damages)
 
 # write your construct hurricane dictionary function here:
+def build_dictionary(names, months, years, max_sustained_winds, areas_affected, damages, deaths):
+    dictionary = {}
+    for i in range(len(names)):
+        dictionary[names[i]] = {"Name": names[i], "Month": months[i], "Year": years[i], "Max Sustained Wind": max_sustained_winds[i], "Areas Affected": areas_affected[i], "Damage": damages[i], "Deaths": deaths[i]}
+    return dictionary
 
-
-
-
-
-
+hurricanes_dictionary = build_dictionary(names, months, years, max_sustained_winds, areas_affected, damages_in_float, deaths)
 
 # write your construct hurricane by year dictionary function here:
 
