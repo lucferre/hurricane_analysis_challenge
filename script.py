@@ -23,12 +23,21 @@ deaths = [90,4000,16,3103,179,184,408,682,5,1023,43,319,688,259,37,11,2068,269,3
 print(names)
 
 # write your update damages function here:
+def update_damages(list):
+    updated_damages = []
+    for record in list:
+        if record == "Damages not recorded":
+            updated_damages.append(record)
+        else:
+            if record[len(record)-1] == "M":
+                temp = float(record[0:len(record)-1]) * 1000000
+                updated_damages.append(temp)
+            elif record[len(record)-1] == "B":
+                temp = float(record[0:len(record)-1]) * 1000000000
+                updated_damages.append(temp)
+    return updated_damages
 
-
-
-
-
-
+damages_in_float = update_damages(damages)
 
 # write your construct hurricane dictionary function here:
 
