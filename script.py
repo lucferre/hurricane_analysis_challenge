@@ -61,12 +61,24 @@ def organize_by_year(dictionary):
 hurricanes_by_year = organize_by_year(hurricanes_dictionary)
 
 # write your count affected areas function here:
+def count_area(hurricanes):
+    by_area = {}
+    #Create a key in by_area for each area present in the dictionary
+    #Loop through each value in the dictionary
+    for value in hurricanes_dictionary.values():
+        #Loop through each Areas Affected key in the subdictionary
+        for area in value["Areas Affected"]:
+            #Areas Affected contains a list. Iterate through each index in the list, and if it isn't present as a key in by_area,
+            #add it with a value of 0
+            if not area in by_area:
+                by_area[area] = 0
+    #Loop again through the dictionary, this time to count how many times an area is repeated
+    for value in hurricanes_dictionary.values():
+        for area in value["Areas Affected"]:
+            by_area[area] += 1
+    return by_area
 
-
-
-
-
-
+count_area = count_area(hurricanes_dictionary)
 
 # write your find most affected area function here:
 
