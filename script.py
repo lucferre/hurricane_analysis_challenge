@@ -49,12 +49,16 @@ def build_dictionary(names, months, years, max_sustained_winds, areas_affected, 
 hurricanes_dictionary = build_dictionary(names, months, years, max_sustained_winds, areas_affected, damages_in_float, deaths)
 
 # write your construct hurricane by year dictionary function here:
+def organize_by_year(dictionary):
+    years = {}
+    for value in hurricanes_dictionary.values():
+        if not value["Year"] in years:
+            years[value["Year"]] = []
+    for value in hurricanes_dictionary.values():
+        years[value["Year"]].append(value)
+    return years
 
-
-
-
-
-
+hurricanes_by_year = organize_by_year(hurricanes_dictionary)
 
 # write your count affected areas function here:
 
