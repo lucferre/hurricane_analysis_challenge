@@ -129,11 +129,18 @@ def rate_by_mortality(hurricanes_dictionary):
 rate_by_mortality(hurricanes_dictionary)
 
 # write your greatest damage function here:
+#let's find the hurricane that caused the biggest damage
+def find_greatest_damage(hurricanes):
+    greatest_damage = ('', 0)
+    for name in hurricanes:
+        if hurricanes[name]["Damage"] == "Damages not recorded":
+            None
+        elif hurricanes[name]["Damage"] > greatest_damage[1]:
+            greatest_damage = (name, hurricanes[name]["Damage"])
+            
+    return "{name} caused the greatest damage with a cost of {damage} dollars.".format(name=greatest_damage[0], damage=greatest_damage[1])
 
-
-
-
-
-
+#Call the function with the dictionary
+find_greatest_damage(hurricanes_dictionary)
 
 # write your catgeorize by damage function here:
