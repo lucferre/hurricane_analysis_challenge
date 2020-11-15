@@ -144,3 +144,29 @@ def find_greatest_damage(hurricanes):
 find_greatest_damage(hurricanes_dictionary)
 
 # write your catgeorize by damage function here:
+def rate_by_damage(hurricanes_dictionary):
+    damage_scale = {0: 0,
+                1: 100000000,
+                2: 1000000000,
+                3: 10000000000,
+                4: 50000000000}
+
+    by_damage_rating = {0: [], 1: [], 2: [], 3: [], 4: [], 5: []}
+
+    for hurricane in hurricanes_dictionary:
+        if (hurricanes_dictionary[hurricane]["Damage"] == 0):
+            by_mortality_rating[0].append(hurricanes_dictionary[hurricane])
+        elif (hurricanes_dictionary[hurricane]["Damage"] > damage_scale[0]) and (hurricanes_dictionary[hurricane]["Damage"] <= damage_scale[1]):
+            by_mortality_rating[1].append(hurricanes_dictionary[hurricane])
+        elif (hurricanes_dictionary[hurricane]["Damage"] > damage_scale[1]) and (hurricanes_dictionary[hurricane]["Damage"] <= damage_scale[2]):
+            by_mortality_rating[2].append(hurricanes_dictionary[hurricane])
+        elif (hurricanes_dictionary[hurricane]["Damage"] > damage_scale[2]) and (hurricanes_dictionary[hurricane]["Damage"] <= damage_scale[3]):
+            by_mortality_rating[3].append(hurricanes_dictionary[hurricane])
+        elif (hurricanes_dictionary[hurricane]["Damage"] > damage_scale[3]) and (hurricanes_dictionary[hurricane]["Damage"] <= damage_scale[4]):
+            by_mortality_rating[4].append(hurricanes_dictionary[hurricane])
+        elif (hurricanes_dictionary[hurricane]["Damage"] >= damage_scale[4]):
+            by_mortality_rating[5].append(hurricanes_dictionary[hurricane])
+        
+    return by_damage_rating
+    
+rate_by_mortality(hurricanes_dictionary)
