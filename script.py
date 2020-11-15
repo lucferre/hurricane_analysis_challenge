@@ -81,20 +81,24 @@ def count_area(hurricanes):
 count_area = count_area(hurricanes_dictionary)
 
 # write your find most affected area function here:
-
-
-
-
-
-
+def find_most_affected_area(hurricanes):
+    biggest = ('', 0)
+    for pair in count_area.items():
+        if pair[1] > biggest[1]:
+            biggest = pair
+    print("The most affected area is {area} with {times} hurricanes.".format(area=biggest[0], times=biggest[1]))
+    
+find_most_affected_area(hurricanes_dictionary)
 
 # write your greatest number of deaths function here:
-
-
-
-
-
-
+def find_most_deadly(hurricanes):
+    most_deadly = ('', 0)
+    for name_key in hurricanes:
+        if hurricanes[name_key]["Deaths"] > most_deadly[1]:
+            most_deadly = (name_key, hurricanes[name_key]["Deaths"])
+    print("{name} caused the greatest number of deaths with {deaths} deaths.".format(name=most_deadly[0], deaths=most_deadly[1]))
+    
+find_most_deadly(hurricanes_dictionary)
 
 # write your catgeorize by mortality function here:
 
